@@ -8,42 +8,44 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Profile {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long profile_id;
+	@NotNull
 	private String login;
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
 	private String email;
+	@NotNull
 	private Date created;
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "profile") // fetch to test
 	private Set<Message> messages;
-	
-	public Profile() {		
+
+	public Profile() {
 	}
 
-	public Profile(long id, String login, String firstName, String lastName, String email, Date created) {	
-		this.id = id;
+	public Profile(String login, String firstName, String lastName, String email) {
 		this.login = login;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.created = created;
+		this.created = new Date();
 	}
 
-	public long getId() {
-		return id;
+	public long getProfile_id() {
+		return profile_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setProfile_id(long profile_id) {
+		this.profile_id = profile_id;
 	}
 
 	public String getLogin() {
@@ -83,9 +85,9 @@ public class Profile {
 	}
 
 	public void setCreated(Date created) {
-		this.created = created;
+		this.created = new Date();
 	}
-	
+
 	public Set<Message> getMessages() {
 		return messages;
 	}

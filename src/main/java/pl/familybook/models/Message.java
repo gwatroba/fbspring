@@ -3,38 +3,41 @@ package pl.familybook.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String message;
-	private Date created;
+	private long message_id;
 	@NotNull
-    @JoinColumn(name = "user_id")
-    private Long user_id;
+	private String message;
+	@NotNull
+	private Date created;
+	@ManyToOne(fetch=FetchType.LAZY) // to test
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
 	
 	public Message(){
 	}
 
-	public Message(long id, String message, Date created) {
-		this.id = id;
+	public Message(String message) {
 		this.message = message;
-		this.created = created;
+		this.created = new Date();
 	}
 
 	public long getId() {
-		return id;
+		return message_id;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.message_id = id;
 	}
 
 	public String getMessage() {
@@ -50,11 +53,15 @@ public class Message {
 	}
 
 	public void setCreated(Date created) {
-		this.created = created;
+		this.created = new Date();
 	}
 	
-	
-	
-	
+	public Profile getProfile() {
+		return profile;
+	}
 
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+	
 }

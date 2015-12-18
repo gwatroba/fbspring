@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: fbsprint
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: gwatroba
+Built-By: grzegorz.watroba
 Implementation-Vendor-Id: pl.familybook
 Build-Jdk: 1.8.0_65
 Created-By: Maven Integration for Eclipse

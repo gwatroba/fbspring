@@ -39,6 +39,10 @@
 			<artifactId>jackson-datatype-hibernate4</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>

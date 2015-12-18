@@ -1,3 +1,4 @@
+<!--
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
@@ -14,7 +15,8 @@
 			<property name="hibernate.connection.username" value="postgres" />
 			<property name="hibernate.connection.password" value="postgres" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<!--  <property name="hibernate.hbm2ddl.auto" value="create" />  -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />  
 		</properties>
 	</persistence-unit>
 </persistence>
+-->

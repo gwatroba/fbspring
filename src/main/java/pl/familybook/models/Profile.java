@@ -26,8 +26,8 @@ public class Profile {
 	private String email;
 	@NotNull
 	private Date created;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "profile") // fetch to test
-	private Set<Message> messages;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "profile") // fetch to test
+//	private Set<Message> messages;
 
 	public Profile() {
 	}
@@ -86,14 +86,6 @@ public class Profile {
 
 	public void setCreated(Date created) {
 		this.created = new Date();
-	}
-
-	public Set<Message> getMessages() {
-		return messages;
-	}
-
-	public void setMessages(Set<Message> messages) {
-		this.messages = messages;
 	}
 
 }

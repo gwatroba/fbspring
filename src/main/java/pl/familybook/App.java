@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import pl.familybook.models.Profile;
-import pl.familybook.repositories.ProfileDao;
+import pl.familybook.repositories.ProfileRepository;
 
 @SpringBootApplication
 public class App {
@@ -20,13 +20,13 @@ public class App {
 						
 	}
 	
-	@Bean
-	public Profile demo(ProfileDao repo) {
-		
-		Profile profile = new Profile("daoa1q211q", "sada", "Watroba", "adaqao1k@1qa1aa.pl"); 
-		repo.save(profile);
-		return profile;
-	}
+//	@Bean
+//	public Profile demo(ProfileRepository repo) {
+//		
+//		Profile profile = new Profile("daoa1q211q", "sada", "Watroba", "adaqao1k@1qa1aa.pl"); 
+//		repo.save(profile);
+//		return profile;
+//	}
 	
 //	@Bean
 //	public List<Profile> demo2() {

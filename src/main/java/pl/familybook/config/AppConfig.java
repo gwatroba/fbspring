@@ -6,6 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -17,9 +18,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@ComponentScan(basePackages = "pl.familybook")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "pl.familybook.repositories")
-public class SqlInitialization {
+public class AppConfig {
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -45,6 +47,7 @@ public class SqlInitialization {
 	protected Properties buildHibernateProperties() {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
+		hibernateProperties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", "false");
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "false");
 		return hibernateProperties;
 	}
@@ -53,7 +56,6 @@ public class SqlInitialization {
 	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactory);
-		//transactionManager.setDataSource(dataSource);
 		return transactionManager;
 	}
 	//

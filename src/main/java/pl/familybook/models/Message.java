@@ -20,7 +20,7 @@ public class Message {
 	private String message;
 	@NotNull
 	private Date created;
-	@ManyToOne(fetch=FetchType.LAZY) // to test
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "profile_id")
     private Profile profile;
 	
